@@ -17,7 +17,7 @@ return require("packer").startup(function()
             })
         end
     })
-    use ("tpope/vim-fugitive")
+    use ("kyazdani42/nvim-web-devicons")
     use ("norcalli/nvim-colorizer.lua")
 
    -- Colorscheme section
