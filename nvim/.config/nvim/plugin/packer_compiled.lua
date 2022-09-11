@@ -80,10 +80,25 @@ _G.packer_plugins = {
     path = "/home/george/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/george/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/george/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/george/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  night = {
+    loaded = true,
+    path = "/home/george/.local/share/nvim/site/pack/packer/start/night",
+    url = "https://github.com/NightCS/night.nvim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,

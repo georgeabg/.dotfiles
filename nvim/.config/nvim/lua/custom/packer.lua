@@ -19,8 +19,15 @@ return require("packer").startup(function()
     })
     use ("kyazdani42/nvim-web-devicons")
     use ("norcalli/nvim-colorizer.lua")
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
    -- Colorscheme section
     use("gruvbox-community/gruvbox")
     use("folke/tokyonight.nvim")
+    use { 'NightCS/night.nvim', as = 'night' }
+
 end)
