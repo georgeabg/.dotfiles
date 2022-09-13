@@ -9,6 +9,21 @@ local widgets = require("ui.widgets")
 local wbutton = require("ui.widgets.button")
 local animation = require("modules.animation")
 
+--- Keyboard layout widget
+local keyboard_layout = require("modules.keyboard_layout")
+
+local kbdcfg = keyboard_layout.kbdcfg({type = "tui", remember_layout = true})
+kbdcfg.add_primary_layout("English", "US", "us")
+kbdcfg.add_primary_layout("Latam",  "MX", "latam")
+kbdcfg.bind()
+kbdcfg.widget:buttons(
+  awful.util.table.join(awful.button({ }, 1, function () kbdcfg.switch_next() end))
+)
+
+awful.keyboard.append_global_keybindings({
+  awful.key({"Shift", "Mod4"}, "l", function () kbdcfg.switch_next() end, { description = "switch keyboard layout", group = "WM" })
+})
+
 --- Modern Top Panel
 --- ~~~~~~~~~~~~~~~~~~~
 
@@ -261,6 +276,7 @@ return function(s)
 					tag_list(s),
 					{
 						system_tray(),
+                        kbdcfg.widget,
 						s.battery,
 						s.network,
 						notif_panel(),
