@@ -439,10 +439,22 @@ awful.keyboard.append_global_keybindings({
 -----------
 --awful.keyboard.append_global_keybindings({
 -- No need for these (single screen setup)
---awful.key({ superkey, ctrlkey }, "j", function () awful.screen.focus_relative( 1) end,
---{description = "focus the next screen", group = "screen"}),
---awful.key({ superkey, ctrlkey }, "k", function () awful.screen.focus_relative(-1) end,
---{description = "focus the previous screen", group = "screen"}),
+--awful.key({ 
+--      modifiers = {mod, ctrl }, "j", 
+--      description = "focus the next screen", 
+--      group = "screen",
+--      on_press = function () 
+--              awful.screen.focus_relative( 1) 
+--      end,
+--      }),
+--awful.key({ 
+--      modifiers = {mod, ctrl }, "k", 
+--      description = "focus the previous screen", 
+--      group = "screen",
+--      on_press = function () 
+--              awful.screen.focus_relative(-1) 
+--      end,
+--}),
 --})
 
 --- Mouse bindings on desktop

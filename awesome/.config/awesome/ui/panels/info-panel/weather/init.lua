@@ -168,12 +168,12 @@ local weather_widget = wibox.widget({
 local api_key = user_vars.widget.weather.key
 local coordinates = user_vars.widget.weather.coordinates
 
-local show_hourly_forecast = true
+local show_hourly_forecast = false 
 local show_daily_forecast = true
 local units = "metric"
 
 local url = (
-	"https://api.openweathermap.org/data/2.5/onecall"
+	"https://api.openweathermap.org/data/2.5/weather"
 	.. "?lat="
 	.. coordinates[1]
 	.. "&lon="
@@ -196,19 +196,19 @@ awful.widget.watch(string.format(GET_FORECAST_CMD, url), 600, function(_, stdout
 		local humidity = current_weather_widget:get_children_by_id("humidity")[1]
 		local temp_current = current_weather_widget:get_children_by_id("tempareture_current")[1]
 		local feels_like = current_weather_widget:get_children_by_id("feels_like")[1]
-		icon.image = icon_dir .. icon_map[result.current.weather[1].icon] .. ".svg"
+		icon.image = icon_dir .. icon_map[result.weather[1].icon] .. ".svg"
 		icon:emit_signal("widget::redraw_needed")
-		description:set_text(result.current.weather[1].description:gsub("^%l", string.upper))
-		humidity:set_text("Humidity: " .. result.current.humidity .. "%")
-		temp_current:set_markup(math.floor(result.current.temp) .. "<sup><span>°</span></sup>")
-		feels_like:set_markup("Feels like: " .. math.floor(result.current.feels_like) .. "<sup><span>°</span></sup>")
+		description:set_text(result.weather[1].description:gsub("^%l", string.upper))
+		humidity:set_text("Humidity: " .. result.main.humidity .. "%")
+		temp_current:set_markup(math.floor(result.main.temp) .. "<sup><span>°</span></sup>")
+		feels_like:set_markup("Feels like: " .. math.floor(result.main.feels_like) .. "<sup><span>°</span></sup>")
 		-- Hourly widget setup
-		hourly_widget_1.update(result.hourly[1])
-		hourly_widget_2.update(result.hourly[2])
-		hourly_widget_3.update(result.hourly[3])
-		hourly_widget_4.update(result.hourly[4])
-		hourly_widget_5.update(result.hourly[5])
-		hourly_widget_6.update(result.hourly[6])
+		-- hourly_widget_1.update(result.hourly[1])
+		-- hourly_widget_2.update(result.hourly[2])
+		-- hourly_widget_3.update(result.hourly[3])
+		-- hourly_widget_4.update(result.hourly[4])
+		-- hourly_widget_5.update(result.hourly[5])
+		-- hourly_widget_6.update(result.hourly[6])
 	end
 end)
 

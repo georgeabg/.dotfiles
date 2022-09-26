@@ -1,3 +1,5 @@
 require("custom.set")
 require("custom.packer")
 require("custom.remap")
+require("custom.cmp")
+require("custom.luasnip")
